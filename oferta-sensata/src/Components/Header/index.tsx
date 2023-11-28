@@ -1,7 +1,7 @@
-import Menu from './Menu';
+import NavBar from './NavBar';
 
 const Header = () => {
-  return <Menu />;
+  return <NavBar />;
 };
 
 export default Header;
