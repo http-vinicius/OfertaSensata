@@ -4,9 +4,12 @@ const useStyles = () => ({
   root: {
     display: 'flex',
   },
+  toolbar: {
+    justifyContent: 'center',
+  },
   boxToolbar: {
-    width: '55%',
-    justifyContent: 'space-between',
+    width: '100vh',
+    justifyContent: 'center',
   },
   icone: {
     marginRight: 2,
