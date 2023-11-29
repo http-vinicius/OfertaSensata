@@ -1,18 +1,7 @@
-import Container from '@mui/material/Container';
-
-import useStyles from './styles';
-import { Box } from '@mui/material';
+import ConteudoGaleria from '../../Components/ConteudoGaleria';
 
 const Home = () => {
-  const styles = useStyles();
-
-  return (
-    <>
-      <Container sx={styles.root}>
-        <Box sx={styles.box}></Box>
-      </Container>
-    </>
-  );
+  return <ConteudoGaleria />;
 };
 
 export default Home;
