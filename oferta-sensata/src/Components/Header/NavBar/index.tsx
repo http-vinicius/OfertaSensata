@@ -58,19 +58,17 @@ const NavBar = (props: Props) => {
         Categorias
       </Typography>
       <Divider />
-      <List>
-        {itensMenu.map((item) => (
-          <>
-            {item.itens.map((item) => (
-              <ListItem key={item.id} disablePadding>
-                <ListItemButton sx={{ textAlign: 'center' }}>
-                  <ListItemText key={item.id} primary={item.nomeItem} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </>
-        ))}
-      </List>
+      {itensMenu.map((item) => (
+        <List key={item.id}>
+          {item.itens.map((item) => (
+            <ListItem key={item.id} disablePadding>
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary={item.nomeItem} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      ))}
     </Box>
   );
 
@@ -105,7 +103,7 @@ const NavBar = (props: Props) => {
             }}
           >
             <Box sx={styles.boxButton}>
-              {itensMenu.map((item) => (
+              {/* {itensMenu.map((item) => (
                 <div>
                   <Button
                     key={item.id}
@@ -136,7 +134,7 @@ const NavBar = (props: Props) => {
                     ))}
                   </Menu>
                 </div>
-              ))}
+              ))} */}
             </Box>
           </Box>
         </Toolbar>

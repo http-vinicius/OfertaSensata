@@ -9,17 +9,16 @@ import Typography from '@mui/material/Typography';
 import useStyles from './styles';
 
 type CardsGaleriaProps = {
-  key: number;
   imagem: string;
   title: string;
   content: string;
 };
 
-const CardsGaleria = ({ key, imagem, title, content }: CardsGaleriaProps) => {
+const CardsGaleria = ({ imagem, title, content }: CardsGaleriaProps) => {
   const styles = useStyles();
 
   return (
-    <Grid item key={key} xs={12} sm={6} md={4}>
+    <Grid item xs={12} sm={6} md={4}>
       <Card
         sx={{
           height: '100%',
