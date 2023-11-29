@@ -5,10 +5,14 @@ const useStyles = () => ({
     display: 'flex',
   },
   toolbar: {
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
   boxToolbar: {
-    width: '100vh',
+    justifyContent: 'center',
+    width: '100%',
+  },
+  boxButton: {
+    display: 'flex',
     justifyContent: 'center',
   },
   icone: {
@@ -17,10 +21,6 @@ const useStyles = () => ({
   logo: {
     height: 64,
     width: 120,
-  },
-  boxButton: {
-    display: 'flex',
-    alignItems: 'center',
   },
   titulo: {
     fontSize: (theme: Theme) => theme.typography.body1.fontSize,
