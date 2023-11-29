@@ -25,9 +25,14 @@ const ConteudoGaleria = () => {
   const [page, setPage] = useState(1);
 
   // Função para alterar a página
-  const handleChange = (_event: React.ChangeEvent<unknown>, newPage: number) => {
+  const handleChange = (
+    _event: React.ChangeEvent<unknown>,
+    newPage: number,
+  ) => {
     setPage(newPage);
   };
+
+  const totalPages = Math.ceil(dadosGaleriaMock.length / cardsPerPage);
 
   // Índice inicial e final dos cards a serem exibidos
   const startIndex: number = (page - 1) * cardsPerPage;
@@ -38,7 +43,7 @@ const ConteudoGaleria = () => {
       <CssBaseline />
       <main>
         {/* Hero unit */}
-        <Container sx={{ py: 8, mt: '30px' }} maxWidth="md">
+        <Container sx={{ py: 8, mt: '30px', minHeight: '100%' }} maxWidth="md">
           {/* End hero unit */}
           <Grid container spacing={4}>
             {dadosGaleriaMock.slice(startIndex, endIndex).map((card, index) => (
@@ -47,7 +52,7 @@ const ConteudoGaleria = () => {
           </Grid>
           <Box sx={styles.box}>
             <Pagination
-              count={10}
+              count={totalPages}
               page={page}
               onChange={handleChange}
               color="secondary"
