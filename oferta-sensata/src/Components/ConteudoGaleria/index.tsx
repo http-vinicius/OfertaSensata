@@ -1,25 +1,21 @@
 import { useState } from 'react';
 
-import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Pagination from '@mui/material/Pagination';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import CardsGaleria from './CardsGaleria';
 import useStyles from './styles';
 import { dadosGaleriaMock } from './utils';
-
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
+import Footer from '../Footer';
 
 const ConteudoGaleria = () => {
   const styles = useStyles();
+  var htmlElement = document.documentElement;
 
   // Quantidade de cards por página
-  const cardsPerPage = 6;
+  const cardsPerPage = 9;
 
   // Estado para controlar a página atual
   const [page, setPage] = useState(1);
@@ -30,6 +26,7 @@ const ConteudoGaleria = () => {
     newPage: number,
   ) => {
     setPage(newPage);
+    htmlElement.scrollTop = 0;
   };
 
   const totalPages = Math.ceil(dadosGaleriaMock.length / cardsPerPage);
@@ -38,44 +35,30 @@ const ConteudoGaleria = () => {
   const startIndex: number = (page - 1) * cardsPerPage;
   const endIndex: number = startIndex + cardsPerPage;
 
+  const isTotalItens =
+    dadosGaleriaMock.slice(startIndex, endIndex).length === 9;
+
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <CssBaseline />
-      <main>
-        {/* Hero unit */}
-        <Container sx={{ py: 8, mt: '30px', minHeight: '100%' }} maxWidth="md">
-          {/* End hero unit */}
+    <main style={styles.root}>
+      <Container sx={styles.container} maxWidth="md">
+        <Box sx={styles.boxItens(isTotalItens)}>
           <Grid container spacing={4}>
             {dadosGaleriaMock.slice(startIndex, endIndex).map((card, index) => (
               <CardsGaleria key={index} {...card} />
             ))}
           </Grid>
-          <Box sx={styles.box}>
-            <Pagination
-              count={totalPages}
-              page={page}
-              onChange={handleChange}
-              color="secondary"
-            />
-          </Box>
-        </Container>
-      </main>
-      {/* Footer */}
-      <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-      </Box>
-      {/* End footer */}
-    </ThemeProvider>
+        </Box>
+        <Box sx={styles.box}>
+          <Pagination
+            count={totalPages}
+            page={page}
+            onChange={handleChange}
+            color="secondary"
+          />
+        </Box>
+      </Container>
+      <Footer />
+    </main>
   );
 };
 

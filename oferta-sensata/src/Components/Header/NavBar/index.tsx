@@ -43,7 +43,7 @@ const NavBar = () => {
             <Box sx={styles.boxButton}>
               {itensMenu.map((item) => (
                 <div>
-                  <Button
+                  {/* <Button
                     key={item.id}
                     id="basic-button"
                     aria-controls={open ? 'basic-menu' : undefined}
@@ -70,7 +70,7 @@ const NavBar = () => {
                         {item.nomeItem}
                       </MenuItem>
                     ))}
-                  </Menu>
+                  </Menu> */}
                 </div>
               ))}
             </Box>

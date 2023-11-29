@@ -42,7 +42,7 @@ const CardsGaleria = ({ key, imagem, title, content }: CardsGaleriaProps) => {
           <Typography>{content}</Typography>
         </CardContent>
         <CardActions sx={styles.button}>
-          <Button variant="contained">Contained</Button>
+          <Button variant="contained" color='error'>Contained</Button>
         </CardActions>
       </Card>
     </Grid>
