@@ -1,3 +1,5 @@
+import { useCallback } from 'react';
+
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -11,11 +13,15 @@ import useStyles from './styles';
 type CardsGaleriaProps = {
   imagem: string;
   title: string;
-  content: string;
+  link: string;
 };
 
-const CardsGaleria = ({ imagem, title, content }: CardsGaleriaProps) => {
+const CardsGaleria = ({ imagem, title, link }: CardsGaleriaProps) => {
   const styles = useStyles();
+
+  const handleClick = useCallback(() => {
+    window.location.href = link;
+  }, []);
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -30,18 +36,19 @@ const CardsGaleria = ({ imagem, title, content }: CardsGaleriaProps) => {
           component="div"
           sx={{
             // 16:9
-            pt: '56.25%',
+            pt: '90%',
           }}
           image={imagem}
         />
         <CardContent sx={{ flexGrow: 1 }}>
-          <Typography gutterBottom variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2" textAlign='center'>
             {title}
           </Typography>
-          <Typography>{content}</Typography>
         </CardContent>
         <CardActions sx={styles.button}>
-          <Button variant="contained" color='error'>Contained</Button>
+          <Button variant="contained" color="error" onClick={handleClick}>
+            Ver na loja
+          </Button>
         </CardActions>
       </Card>
     </Grid>

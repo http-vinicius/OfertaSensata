@@ -41,10 +41,15 @@ const ConteudoGaleria = () => {
   return (
     <main style={styles.root}>
       <Container sx={styles.container} maxWidth="md">
-        {/* <Box sx={styles.boxItens(isTotalItens)}>
+        <Box sx={styles.boxItens(isTotalItens)}>
           <Grid container spacing={4}>
             {dadosGaleriaMock.slice(startIndex, endIndex).map((card, index) => (
-              <CardsGaleria key={index} {...card} />
+              <CardsGaleria
+                key={index}
+                imagem={card.imagem}
+                title={card.title}
+                link={card.link}
+              />
             ))}
           </Grid>
         </Box>
@@ -55,7 +60,7 @@ const ConteudoGaleria = () => {
             onChange={handleChange}
             color="secondary"
           />
-        </Box> */}
+        </Box>
       </Container>
       <Footer />
     </main>

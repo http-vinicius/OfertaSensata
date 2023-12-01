@@ -1,9 +1,8 @@
-import { Theme } from '@mui/material';
+import { Theme } from '@mui/material/styles';
 
 const useStyles = () => ({
   root: {
     height: '100vh',
-    // border: '1px solid red',
   },
   container: {
     pt: '100px',

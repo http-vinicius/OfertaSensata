@@ -1,6 +1,12 @@
+export type SubcategoriaTypes = {
+  id: ''
+}
+
 export type ItensTypes = {
   id: number;
   nomeItem: string;
+  nm_categoria: string;
+  // subcategoria: 
 };
 
 export type ItensMenuTypes = {
@@ -16,15 +22,18 @@ export const itensMenu: ItensMenuTypes[] = [
     itens: [
       {
         id: 0,
-        nomeItem: 'Categoria 1',
+        nomeItem: 'Eletrônicos',
+        nm_categoria: 'EN',
       },
       {
         id: 1,
-        nomeItem: 'Categoria 2',
+        nomeItem: 'Eletrodomésticos',
+        nm_categoria: 'EM',
       },
       {
         id: 2,
-        nomeItem: 'Categoria 3',
+        nomeItem: 'Beleza',
+        nm_categoria: 'BL',
       },
     ],
   },

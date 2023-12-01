@@ -92,21 +92,20 @@ const NavBar = (props: Props) => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ ...styles.icone, display: { sm: 'none' } }}
+            sx={{ ...styles.icone, display: { sm: 'none', xs: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
-          <Box
+          {/* <Box
             sx={{
               ...styles.boxToolbar,
               display: { xs: 'none', lg: 'block', md: 'block', sm: 'block' },
             }}
           >
             <Box sx={styles.boxButton}>
-              {/* {itensMenu.map((item) => (
-                <div>
+              {itensMenu.map((item) => (
+                <div key={item.id}>
                   <Button
-                    key={item.id}
                     id="basic-button"
                     aria-controls={open ? 'basic-menu' : undefined}
                     aria-haspopup="true"
@@ -134,9 +133,9 @@ const NavBar = (props: Props) => {
                     ))}
                   </Menu>
                 </div>
-              ))} */}
+              ))}
             </Box>
-          </Box>
+          </Box> */}
         </Toolbar>
       </AppBar>
       <nav>
