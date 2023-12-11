@@ -19,8 +19,8 @@ type CardsGaleriaProps = {
 const CardsGaleria = ({ imagem, title, link }: CardsGaleriaProps) => {
   const styles = useStyles();
 
-  const handleClick = useCallback(() => {
-    window.open(link, '_blank');
+  const handleClick = useCallback((url: string) => {
+    window.open(url, '_blank');
   }, []);
 
   return (
@@ -51,7 +51,11 @@ const CardsGaleria = ({ imagem, title, link }: CardsGaleriaProps) => {
           </Typography>
         </CardContent>
         <CardActions sx={styles.button}>
-          <Button variant="contained" color="error" onClick={handleClick}>
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => handleClick(link)}
+          >
             Ver na loja
           </Button>
         </CardActions>
