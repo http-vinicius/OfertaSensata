@@ -14,6 +14,7 @@ const useStyles = () => ({
   boxButton: {
     display: 'flex',
     justifyContent: 'center',
+    gap: 2,
   },
   icone: {
     marginRight: 2,
@@ -24,6 +25,11 @@ const useStyles = () => ({
   },
   titulo: {
     fontSize: (theme: Theme) => theme.typography.body1.fontSize,
+    fontWeight: 'bold',
+    // textTransform: 'capitalize',
+  },
+  tituloCategoria: {
+    textTransform: 'capitalize',
     fontWeight: 'bold',
   },
 });

@@ -20,7 +20,7 @@ const CardsGaleria = ({ imagem, title, link }: CardsGaleriaProps) => {
   const styles = useStyles();
 
   const handleClick = useCallback(() => {
-    window.location.href = link;
+    window.open(link, '_blank');
   }, []);
 
   return (
@@ -36,12 +36,17 @@ const CardsGaleria = ({ imagem, title, link }: CardsGaleriaProps) => {
           component="div"
           sx={{
             // 16:9
-            pt: '90%',
+            pt: '100%',
           }}
           image={imagem}
         />
         <CardContent sx={{ flexGrow: 1 }}>
-          <Typography gutterBottom variant="h5" component="h2" textAlign='center'>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h2"
+            textAlign="center"
+          >
             {title}
           </Typography>
         </CardContent>

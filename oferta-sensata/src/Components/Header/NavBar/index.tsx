@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import MenuIcon from '@mui/icons-material/Menu';
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+// import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+// import Button from '@mui/material/Button';
+// import Menu from '@mui/material/Menu';
+// import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -14,13 +14,14 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+// import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 
 import Logo from '../../Icones/Logo';
 
 import { itensMenu } from './utils';
 import useStyles from './styles';
+// import { Menu, MenuItem } from '@mui/material';
 
 interface Props {
   /**
@@ -35,22 +36,18 @@ const drawerWidth = 240;
 const NavBar = (props: Props) => {
   const styles = useStyles();
   const { window } = props;
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  // const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const open = Boolean(anchorEl);
+  // const open = Boolean(anchorEl);
 
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  // const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -60,13 +57,11 @@ const NavBar = (props: Props) => {
       <Divider />
       {itensMenu.map((item) => (
         <List key={item.id}>
-          {item.itens.map((item) => (
-            <ListItem key={item.id} disablePadding>
-              <ListItemButton sx={{ textAlign: 'center' }}>
-                <ListItemText primary={item.nomeItem} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+          <ListItem disablePadding>
+            <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemText primary={item.nome_item} />
+            </ListItemButton>
+          </ListItem>
         </List>
       ))}
     </Box>
@@ -87,19 +82,19 @@ const NavBar = (props: Props) => {
           >
             <Logo />
           </Box>
-          <IconButton
+          {/* <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ ...styles.icone, display: { sm: 'none', xs: 'none' } }}
+            sx={{ ...styles.icone, display: { sm: 'block', xs: 'block', md: 'none' } }}
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           {/* <Box
             sx={{
               ...styles.boxToolbar,
-              display: { xs: 'none', lg: 'block', md: 'block', sm: 'block' },
+              display: { xs: 'none', lg: 'block', md: 'block', sm: 'none' },
             }}
           >
             <Box sx={styles.boxButton}>
@@ -111,27 +106,15 @@ const NavBar = (props: Props) => {
                     aria-haspopup="true"
                     aria-expanded={open ? 'true' : undefined}
                     onClick={handleClick}
-                    endIcon={<KeyboardArrowDownIcon />}
-                    color="inherit"
+                    // endIcon={<KeyboardArrowDownIcon />}
+                    color="warning"
+                    variant="contained"
                     sx={styles.titulo}
                   >
-                    {item.categoria}
+                    <Typography sx={styles.tituloCategoria}>
+                      {item.nome_item}
+                    </Typography>
                   </Button>
-                  <Menu
-                    id="basic-menu"
-                    anchorEl={anchorEl}
-                    open={open}
-                    onClose={handleClose}
-                    MenuListProps={{
-                      'aria-labelledby': 'basic-button',
-                    }}
-                  >
-                    {item.itens.map((item) => (
-                      <MenuItem key={item.id} onClick={handleClose}>
-                        {item.nomeItem}
-                      </MenuItem>
-                    ))}
-                  </Menu>
                 </div>
               ))}
             </Box>

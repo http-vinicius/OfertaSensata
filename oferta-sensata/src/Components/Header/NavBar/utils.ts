@@ -1,40 +1,27 @@
-export type SubcategoriaTypes = {
-  id: ''
-}
-
 export type ItensTypes = {
   id: number;
-  nomeItem: string;
-  nm_categoria: string;
-  // subcategoria: 
+  nome_item: string;
 };
 
-export type ItensMenuTypes = {
-  id: number;
-  categoria: string;
-  itens: ItensTypes[];
-};
-
-export const itensMenu: ItensMenuTypes[] = [
+export const itensMenu: ItensTypes[] = [
   {
     id: 0,
-    categoria: 'Categoria',
-    itens: [
-      {
-        id: 0,
-        nomeItem: 'Eletrônicos',
-        nm_categoria: 'EN',
-      },
-      {
-        id: 1,
-        nomeItem: 'Eletrodomésticos',
-        nm_categoria: 'EM',
-      },
-      {
-        id: 2,
-        nomeItem: 'Beleza',
-        nm_categoria: 'BL',
-      },
-    ],
+    nome_item: 'Popular',
+  },
+  {
+    id: 1,
+    nome_item: 'Natal',
+  },
+  {
+    id: 2,
+    nome_item: 'Beleza',
+  },
+  {
+    id: 3,
+    nome_item: 'Eletrônicos',
+  },
+  {
+    id: 4,
+    nome_item: 'Eletrodomesticos',
   },
 ];

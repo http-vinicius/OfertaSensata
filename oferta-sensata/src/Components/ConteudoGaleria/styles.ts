@@ -8,7 +8,7 @@ const useStyles = () => ({
     pt: '100px',
   },
   boxItens: (isTotalItens: boolean) => ({
-    height: isTotalItens ? '100%' : '70vh',
+    height: isTotalItens ? '100%' : '100%',
   }),
   button: {
     display: 'flex',
